@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HM  Portfolio</title>
+    <title>HM Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -20,15 +20,22 @@
             @apply bg-gray-50 text-gray-800; /* Light mode default */
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        /* Dark mode styles */
+        /* Dark mode styles - Ensure these are comprehensive */
         body.dark {
             @apply bg-gray-900 text-gray-100;
         }
+        /* Explicitly target elements that might have fixed light backgrounds */
         .dark .bg-white {
             @apply bg-gray-800;
         }
+        .dark .bg-gray-50 {
+            @apply bg-gray-900;
+        }
         .dark .text-gray-800 {
             @apply text-gray-100;
+        }
+        .dark .text-gray-700 {
+            @apply text-gray-300;
         }
         .dark .border-gray-200 {
             @apply border-gray-700;
@@ -36,24 +43,27 @@
         .dark .shadow-md {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
         }
-        .dark .hover\\:bg-gray-100:hover {
+        /* Ensure hover states also adapt */
+        .dark .hover\:bg-gray-100:hover {
             @apply hover:bg-gray-700;
         }
-        .dark .hover\\:text-blue-600:hover {
+        .dark .hover\:text-blue-600:hover {
             @apply hover:text-blue-400;
         }
-        .dark .focus\\:ring-blue-500:focus {
+        .dark .focus\:ring-blue-500:focus {
             @apply focus:ring-blue-400;
         }
         .dark .placeholder-gray-500::placeholder {
             @apply text-gray-400;
         }
+        /* Form inputs in dark mode */
         .dark input, .dark textarea {
             @apply bg-gray-700 border-gray-600 text-gray-100;
         }
         .dark input:focus, .dark textarea:focus {
             @apply border-blue-400 ring-blue-400;
         }
+
         /* Typewriter effect for hero text */
         .typewriter h1 {
             overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -120,19 +130,22 @@
 </head>
 <body class="transition-colors duration-300">
     <!-- Navigation Bar -->
-    <nav class="bg-white shadow-md py-4 fixed w-full z-50 transition-colors duration-300">
+    <nav class="bg-white dark:bg-gray-800 shadow-md py-4 fixed w-full z-50 transition-colors duration-300">
         <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
             <a href="#hero" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">Hanumantha S</a>
             <div class="hidden md:flex space-x-6">
-                <a href="#about" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">About</a>
-                <a href="#skills" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">Skills</a>
-                <a href="#projects" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">Projects</a>
-                <a href="#experience" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">Experience & Education</a>
-                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition-colors duration-300">Contact</a>
-          </div>
+                <a href="#about" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">About</a>
+                <a href="#skills" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
+                <a href="#projects" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Projects</a>
+                <a href="#experience" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Experience & Education</a>
+                <a href="#contact" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Contact</a>
+                <!-- Social Media Buttons in Nav -->
+                <a href="https://github.com/likithm369" target="_blank" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/hanumantha-s-7b7b84262" target="_blank" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                <button id="mobile-menu-button" class="text-gray-800 dark:text-gray-100 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -284,9 +297,13 @@
                                 <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-teal-900 dark:text-teal-300">Seaborn</span>
                                 <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Jupyter</span>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-medium"><i class="fab fa-github mr-1"></i>https://github.com/Likithm369/Carbon_Emission_Prediction.git</a>
-                                <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">https://github.com/Likithm369/Carbon_Emission_Prediction.git<i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="https://github.com/Likithm369/Carbon_Emission_Prediction.git" target="_blank" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-3xl" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-400 font-medium flex items-center transition-colors duration-300">
+                                    Live Demo <i class="fas fa-external-link-alt ml-2"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -295,21 +312,25 @@
                         <img src="ncc.png" alt="GAT NCC Webpage Image" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold mb-2 text-blue-600 dark:text-blue-400">GAT NCC Webpage</h3>
-                            <p class="text-gray-700 dark:text-gray-300 mb-4">Designed and deployed a responsive college NCC website.</p>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4">Designed and deployed a responsive college NCC website using HTML, CSS, and JavaScript.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">HTML</span>
                                 <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">CSS</span>
                                 <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">JavaScript</span>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-medium"><i class="fab fa-github mr-1"></i>https://github.com/Likithm369/GAT_NCC.git</a>
-                                <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">https://likithm369.github.io/GAT_NCC/<i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="https://github.com/Likithm369/GAT_NCC.git" target="_blank" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-3xl" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://likithm369.github.io/GAT_NCC/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-400 font-medium flex items-center transition-colors duration-300">
+                                    Live Demo <i class="fas fa-external-link-alt ml-2"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <!-- Project Card: Food Donation Web App -->
                     <div class="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 transform hover:scale-105 transition-all duration-300">
-                        <img src="donate.png" alt="Food Donation Web App Image" class="w-full h-48 object-cover">
+                        <img src="https://placehold.co/600x300/87CEEB/FFFFFF?text=Food+Donation" alt="Food Donation Web App Image" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="text-2xl font-semibold mb-2 text-blue-600 dark:text-blue-400">Food Donation Web App</h3>
                             <p class="text-gray-700 dark:text-gray-300 mb-4">Created a frontend platform for NGOs to share surplus food with verified users.</p>
@@ -318,9 +339,13 @@
                                 <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">CSS</span>
                                 <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">JavaScript</span>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-medium"><i class="fab fa-github mr-1"></i>https://github.com/Likithm369/sharebite.git</a>
-                                <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">https://likithm369.github.io/sharebite/<i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
+                            <div class="flex justify-between items-center mt-4">
+                                <a href="https://github.com/Likithm369/sharebite.git" target="_blank" class="text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-3xl" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://likithm369.github.io/sharebite/" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-400 font-medium flex items-center transition-colors duration-300">
+                                    Live Demo <i class="fas fa-external-link-alt ml-2"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -499,7 +524,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all duration-300 hidden">
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 hidden">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -510,52 +535,61 @@
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        // Check if elements exist before adding event listeners
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-        });
 
-      // 2. Dark Mode Toggle - MODIFIED FOR DEBUGGING
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const body = document.body;
-
-        // Check for saved theme preference or default to system preference
-        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const savedTheme = localStorage.getItem('theme');
-
-        console.log("Dark Mode Toggle Script Initialized.");
-        console.log("System prefers dark mode:", prefersDarkMode);
-        console.log("Saved theme in localStorage:", savedTheme);
-
-        if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
-            body.classList.add('dark');
-            console.log("Initial theme set to: Dark");
-        } else {
-            console.log("Initial theme set to: Light");
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
         }
 
-    
-        if (darkModeToggle) {
-            console.log("Dark Mode Toggle button found in DOM.");
-            darkModeToggle.addEventListener('click', () => {
-                body.classList.toggle('dark');
-                if (body.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
-                    console.log("Theme changed to: Dark (via button click)");
-                } else {
-                    localStorage.setItem('theme', 'light');
-                    console.log("Theme changed to: Light (via button click)");
-                }
-            });
-        } else {
-            console.error("Error: Dark Mode Toggle button (ID 'dark-mode-toggle') not found in the DOM. Please ensure the ID is correct and the script runs after the button element.");
-        }
+
+        // 2. Dark Mode Toggle - FINAL VERSION with DOMContentLoaded and robust checks
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+
+            console.log("Dark Mode Toggle Script Initialized (DOMContentLoaded)."); // Should always appear
+            console.log("Found body element:", body);
+
+            // Check for saved theme preference or default to system preference
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+
+            console.log("System prefers dark mode:", prefersDarkMode);
+            console.log("Saved theme in localStorage:", savedTheme);
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+                body.classList.add('dark');
+                console.log("Initial theme set to: Dark");
+            } else {
+                body.classList.remove('dark');
+                console.log("Initial theme set to: Light");
+            }
+
+            if (darkModeToggle) {
+                console.log("Dark Mode Toggle button found in DOM:", darkModeToggle); // This MUST appear
+                darkModeToggle.addEventListener('click', () => {
+                    body.classList.toggle('dark');
+                    if (body.classList.contains('dark')) {
+                        localStorage.setItem('theme', 'dark');
+                        console.log("Theme changed to: Dark (via button click)"); // This MUST appear on click
+                    } else {
+                        localStorage.setItem('theme', 'light');
+                        console.log("Theme changed to: Light (via button click)"); // This MUST appear on click
+                    }
+                });
+            } else {
+                console.error("Error: Dark Mode Toggle button (ID 'dark-mode-toggle') not found in the DOM. This is critical for dark mode to work.");
+            }
+        });
+
 
         // 3. Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -570,59 +604,66 @@
         // 4. Back to Top Button Visibility
         const backToTopButton = document.getElementById('back-to-top');
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Show button after scrolling 300px
-                backToTopButton.classList.remove('hidden');
-            } else {
-                backToTopButton.classList.add('hidden');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        if (backToTopButton) { // Check if button exists
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // Show button after scrolling 300px
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
             });
-        });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
 
         // 5. Contact Form Submission (Client-side validation and message display)
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
 
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent actual form submission
+        if (contactForm && formMessage) { // Check if elements exist
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent actual form submission
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
 
-            // Simple validation
-            if (!name || !email || !message) {
-                formMessage.classList.remove('hidden', 'text-green-600', 'dark:text-green-400');
-                formMessage.classList.add('text-red-600', 'dark:text-red-400');
-                formMessage.textContent = 'Please fill in all fields.';
-                return;
-            }
+                // Simple validation
+                if (!name || !email || !message) {
+                    formMessage.classList.remove('hidden', 'text-green-600', 'dark:text-green-400');
+                    formMessage.classList.add('text-red-600', 'dark:text-red-400');
+                    formMessage.textContent = 'Please fill in all fields.';
+                    return;
+                }
 
-            // In a real application, you would send this data to a backend server
-            // using fetch() or XMLHttpRequest. For this example, we'll just simulate success.
-            console.log('Form Submitted!', { name, email, message });
+                console.log('Form Submitted!', { name, email, message });
 
-            formMessage.classList.remove('hidden', 'text-red-600', 'dark:text-red-400');
-            formMessage.classList.add('text-green-600', 'dark:text-green-400');
-            formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+                formMessage.classList.remove('hidden', 'text-red-600', 'dark:text-red-400');
+                formMessage.classList.add('text-green-600', 'dark:text-green-400');
+                formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
 
-            // Clear the form
-            contactForm.reset();
+                // Clear the form
+                contactForm.reset();
 
-            // Hide message after a few seconds
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
-        });
+                // Hide message after a few seconds
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            });
+        }
+
 
         // 6. Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) { // Check if element exists
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
     </script>
 </body>
 </html>
